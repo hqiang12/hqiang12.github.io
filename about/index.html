@@ -22,7 +22,6 @@ Hi，初心勿忘，快乐难得，家人幸福，人生海海，期待不一样
 <link rel="mask-icon" href="https://hqiang12.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://hqiang12.github.io/about/index.xml" title="rss">
 <link rel="alternate" hreflang="zh" href="https://hqiang12.github.io/about/">
 <noscript>
     <style>
@@ -96,7 +95,7 @@ Drink：金酒、二锅头
 运动：羽毛球🏸
 Hi，初心勿忘，快乐难得，家人幸福，人生海海，期待不一样的生活">
   <meta property="og:locale" content="zh_cn">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="关于">
@@ -121,8 +120,37 @@ Hi，初心勿忘，快乐难得，家人幸福，人生海海，期待不一样
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "关于",
+  "name": "关于",
+  "description": "籍贯：四川成都\n美食：面包、四川冒菜、家常菜\nDrink：金酒、二锅头\n运动：羽毛球🏸\nHi，初心勿忘，快乐难得，家人幸福，人生海海，期待不一样的生活\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "籍贯：四川成都\n美食：面包、四川冒菜、家常菜\nDrink：金酒、二锅头\n运动：羽毛球🏸\nHi，初心勿忘，快乐难得，家人幸福，人生海海，期待不一样的生活\n深情似海，问相逢初度，是何年纪？依约而今还记取，不是前生夙世。放学花前，题诗石上，春水园亭里。逢君一笑，人间无此欢喜。\n无奈苍狗看云，红羊数劫，惘惘休提起。客气渐多真气少，汩没心灵何已。千古声名，百年担负，事事违初意。心头阁住，儿时那种情味。\n",
+  "wordCount" : "191",
+  "inLanguage": "zh",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hqiang12.github.io/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hqiang",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hqiang12.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="list" id="top">
+<body id="top">
     <header class="header">
     <nav class="header-nav">
         <div class="logo">
@@ -174,19 +202,34 @@ Hi，初心勿忘，快乐难得，家人幸福，人生海海，期待不一样
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<header class="page-header"><nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
             <a href="/">主页</a>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
         <polyline points="9 18 15 12 9 6"></polyline>
     </svg>
 </nav>
-  <h1>
-    关于
-  </h1>
-</header>
-<div class="post-content md-content"><p>籍贯：四川成都<br>
+    <h1 class="post-title entry-hint-parent">
+      关于
+    </h1>
+    <div class="post-meta">
+
+
+
+
+
+
+
+<span>1 分钟</span>&nbsp;·&nbsp;<span>191 字</span>
+
+</div>
+  </header> 
+
+  <div class="post-content md-content"><p>籍贯：四川成都<br>
 美食：面包、四川冒菜、家常菜<br>
 Drink：金酒、二锅头<br>
 运动：羽毛球🏸<br>
@@ -195,7 +238,14 @@ Hi，初心勿忘，快乐难得，家人幸福，人生海海，期待不一样
 无奈苍狗看云，红羊数劫，惘惘休提起。客气渐多真气少，汩没心灵何已。千古声名，百年担负，事事违初意。心头阁住，儿时那种情味。</p>
 
 
-</div>
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+  </footer>
+</article>
     </main>
     
 <footer class="footer">
@@ -292,6 +342,53 @@ Hi，初心勿忘，快乐难得，家人幸福，人生海海，期待不一样
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 
