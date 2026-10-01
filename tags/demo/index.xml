@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Demo on Hqiang</title>
+    <link>https://hqiang12.github.io/tags/demo/</link>
+    <description>Recent content in Demo on Hqiang</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 12 Jul 2024 09:00:00 +0800</lastBuildDate>
+    <atom:link href="https://hqiang12.github.io/tags/demo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>示例：第二篇文章</title>
+      <link>https://hqiang12.github.io/posts/demo-second/</link>
+      <pubDate>Fri, 12 Jul 2024 09:00:00 +0800</pubDate>
+      <guid>https://hqiang12.github.io/posts/demo-second/</guid>
+      <description>一篇较短的文章，让归档与搜索有内容可查</description>
+    </item>
+  </channel>
+</rss>

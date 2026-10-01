@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>从零到一，用 Hugo 打造你的个人网站 | Hqiang</title>
+<meta name="keywords" content="Hugo">
+<meta name="description" content="一起来用世界上最快的网站构建框架搭建个人博客站点吧！">
+<meta name="author" content="">
+<link rel="canonical" href="https://hqiang12.github.io/posts/build-blog-with-hugo/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0442b254956072746eba692cc58270c94ed30f3d83cac80397be7026a80f1d4a.css" integrity="sha256-BEKyVJVgcnRuumksxYJwyU7TDz2DysgDl75wJqgPHUo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://hqiang12.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hqiang12.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hqiang12.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hqiang12.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hqiang12.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://hqiang12.github.io/posts/build-blog-with-hugo/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="stylesheet" href="https://cn-font.claude-code-best.win/packages/lxgwwenkai/dist/LXGWWenKai-Regular/result.css">
+
+<style>
+    @font-face {
+        font-family: livvic;
+        font-style: normal;
+        font-display: swap;
+        font-weight: 400;
+        src: url(https://cdn.jsdelivr.net/fontsource/fonts/livvic@5.3.0/latin-400-normal.woff2) format(woff2);
+    }
+
+    @font-face {
+        font-family: livvic;
+        font-style: normal;
+        font-display: swap;
+        font-weight: 700;
+        src: url(https://cdn.jsdelivr.net/fontsource/fonts/livvic@5.3.0/latin-700-normal.woff2) format(woff2);
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false }
+            ],
+            throwOnError: false
+        });
+    });
+</script><meta property="og:url" content="https://hqiang12.github.io/posts/build-blog-with-hugo/">
+  <meta property="og:site_name" content="Hqiang">
+  <meta property="og:title" content="从零到一，用 Hugo 打造你的个人网站">
+  <meta property="og:description" content="一起来用世界上最快的网站构建框架搭建个人博客站点吧！">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-30T18:12:32+08:00">
+    <meta property="article:modified_time" content="2024-08-30T18:12:32+08:00">
+    <meta property="article:tag" content="Hugo">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="从零到一，用 Hugo 打造你的个人网站">
+  <meta name="twitter:description" content="一起来用世界上最快的网站构建框架搭建个人博客站点吧！">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://hqiang12.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "从零到一，用 Hugo 打造你的个人网站",
+      "item": "https://hqiang12.github.io/posts/build-blog-with-hugo/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "从零到一，用 Hugo 打造你的个人网站",
+  "name": "从零到一，用 Hugo 打造你的个人网站",
+  "description": "一起来用世界上最快的网站构建框架搭建个人博客站点吧！",
+  "keywords": [
+    "Hugo"
+  ],
+  "articleBody": "本文将介绍在本地搭建 Hugo 并部署到静态托管平台的方法。以下所叙之方法即我在部署本演示站点时所使用的，具有借鉴意义。如果在部署过程中遇到报错或其他困难，可以上网搜索或留言——我看到后会提供力所能及的建议。\n在部署 Hugo 之前，需要进行的准备：\n安装 Git 。Git 用于版本控制和代码管理，Linux 和 macOS 系统中一般内置，Windows 用户需要手动安装。安装过程中不需要选择任何多余选项，一直点下一步即可。 拥有一个 GitHub 账号，用于托管代码文件。 拥有一个称手的文本编辑器：推荐使用 Visual Studio Code 或者你喜欢的编辑器。 网络环境良好。为了避免下载文件或上传文件至 GitHub 过程中出现错误，保持网络畅通很有必要。 如果你做好了如下准备，那么恭喜你，你可以进行下一步啦！\n下载并安装 Hugo 在 Hugo 的 Release 页面找到最新版本，选择对应平台的 hugo_extended 压缩包下载并解压。\n创建站点 将下载后的内容放在一个空文件夹中，在当前文件夹上方地址栏输入 cmd，唤起命令行，然后执行：\nhugo new site 我的博客 cd 我的博客 hugo server 用浏览器打开 localhost:1313。如果页面显示 “Page not found”，说明此前所有配置都正常无误——站点骨架已经就绪。\n配置主题 Hugo 默认没有主题，需要到主题商店 挑选。本文以 PaperMod 为例，把主题下载并解压至 themes 文件夹中，然后在 hugo.yaml 中输入相关配置。文件各项配置解释如下，用作参考：\nbaseURL: https://example.com # 网站的基本 URL，替换为你自己的网站域名 languageCode: zh-cn # 网站的默认语言代码，zh-cn 指中文简体 theme: PaperMod # 使用的主题，与 themes 下的文件夹同名 title: 我的博客 # 网站的标题，会显示在浏览器标签上 enableGitInfo: false # 用 git 提交时间生成\"最后更新\"字段 hasCJKLanguage: true # 中文博客开启它，摘要与字数统计才准确 params: defaultTheme: auto # 跟随系统明暗切换，也可固定为 light 或 dark ShowReadingTime: true # 显示预计阅读时间 ShowWordCount: true # 显示文章字数 ShowBreadCrumbs: true # 显示面包屑导航 ShowToc: true # 显示文章目录 markup: highlight: noClasses: false # 以 class 输出高亮，方便用 CSS 自定义配色 撰写文章 在 content/posts/ 文件夹下新建 Markdown 文件，最上方被 --- 包裹的区域是 Front matter，用以指定文章的标题、日期、分类等属性：\n--- title: \"我的第一篇文章\" date: 2026-01-01 description: \"写在文章标题下方的一句话简介\" categories: [\"工作台\"] tags: [\"Hugo\"] draft: false --- 常用字段：title 标题、date 发布日期、lastmod 最后更新、description 简介、categories 分类、tags 标签、draft 草稿开关。并不是所有字段都要出现，保证有默认属性即可。\n顺手验证一下公式渲染：设第 $n$ 个月的文章数为 $a_n$，若每月翻倍，则\n$$S_n = a_1 \\cdot \\frac{2^n - 1}{2 - 1}$$\n部署上线 内容撰写完毕后，执行 hugo 命令即可在 public/ 文件夹生成整站静态文件。推荐将源文件推送到 GitHub 仓库，再交给 Vercel、Cloudflare Pages 或 GitHub Pages 托管，每次推送都会自动重新构建。\nEnd 一切正常的话，就可以愉快地享用你的个人博客啦！当然，部署完成后还可以进行主题美化、评论区配置等一系列繁杂的操作。不过，瞎折腾也不是没有意义的；或许，搭建博客本身就是意义。\n",
+  "wordCount" : "1193",
+  "inLanguage": "zh",
+  "datePublished": "2024-08-30T18:12:32+08:00",
+  "dateModified": "2024-08-30T18:12:32+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hqiang12.github.io/posts/build-blog-with-hugo/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hqiang",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hqiang12.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://hqiang12.github.io/" accesskey="h" title="Hqiang (Alt + H)">Hqiang</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://hqiang12.github.io/posts/" title="文章">
+                    <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hqiang12.github.io/archives/" title="归档">
+                    <span>归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hqiang12.github.io/search/" title="搜索">
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hqiang12.github.io/about/" title="关于">
+                    <span>关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">主页</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/posts/">Posts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      从零到一，用 Hugo 打造你的个人网站
+    </h1>
+    <div class="post-description">
+      一起来用世界上最快的网站构建框架搭建个人博客站点吧！
+    </div>
+    <div class="post-meta">
+
+
+
+
+
+
+
+<span title='2024-08-30 18:12:32 +0800 CST'>2024年8月30日</span>&nbsp;·&nbsp;<span>3 分钟</span>&nbsp;·&nbsp;<span>1193 字</span>
+
+</div>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">目录</span>
+    </summary>
+
+    <div class="inner"><ul>
+            <li>
+                <a href="#%e4%b8%8b%e8%bd%bd%e5%b9%b6%e5%ae%89%e8%a3%85-hugo" aria-label="下载并安装 Hugo">下载并安装 Hugo</a></li>
+            <li>
+                <a href="#%e5%88%9b%e5%bb%ba%e7%ab%99%e7%82%b9" aria-label="创建站点">创建站点</a></li>
+            <li>
+                <a href="#%e9%85%8d%e7%bd%ae%e4%b8%bb%e9%a2%98" aria-label="配置主题">配置主题</a></li>
+            <li>
+                <a href="#%e6%92%b0%e5%86%99%e6%96%87%e7%ab%a0" aria-label="撰写文章">撰写文章</a></li>
+            <li>
+                <a href="#%e9%83%a8%e7%bd%b2%e4%b8%8a%e7%ba%bf" aria-label="部署上线">部署上线</a></li>
+            <li>
+                <a href="#end" aria-label="End">End</a>
+            </li>
+        </ul>
+    </div>
+</details>
+
+  <div class="post-content md-content"><p>本文将介绍在本地搭建 Hugo 并部署到静态托管平台的方法。以下所叙之方法即我在部署本演示站点时所使用的，具有借鉴意义。如果在部署过程中遇到报错或其他困难，可以上网搜索或留言——我看到后会提供力所能及的建议。</p>
+<hr>
+<p>在部署 Hugo 之前，需要进行的准备：</p>
+<ol>
+<li>安装 <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" class="external-link">Git</a>
+。Git 用于版本控制和代码管理，Linux 和 macOS 系统中一般内置，Windows 用户需要手动安装。安装过程中不需要选择任何多余选项，一直点下一步即可。</li>
+<li>拥有一个 <a href="https://github.com/login" target="_blank" rel="noopener noreferrer" class="external-link">GitHub</a>
+ 账号，用于托管代码文件。</li>
+<li>拥有一个称手的文本编辑器：推荐使用 <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer" class="external-link">Visual Studio Code</a>
+ 或者你喜欢的编辑器。</li>
+<li>网络环境良好。为了避免下载文件或上传文件至 GitHub 过程中出现错误，保持网络畅通很有必要。</li>
+</ol>
+<p>如果你做好了如下准备，那么恭喜你，你可以进行下一步啦！</p>
+<h2 id="下载并安装-hugo">下载并安装 Hugo<a hidden class="anchor" aria-hidden="true" href="#下载并安装-hugo">#</a></h2>
+<p>在 Hugo 的 <a href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener noreferrer" class="external-link">Release</a>
+ 页面找到最新版本，选择对应平台的 <code>hugo_extended</code> 压缩包下载并解压。</p>
+<h2 id="创建站点">创建站点<a hidden class="anchor" aria-hidden="true" href="#创建站点">#</a></h2>
+<p>将下载后的内容放在一个空文件夹中，在当前文件夹上方地址栏输入 <code>cmd</code>，唤起命令行，然后执行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">hugo new site 我的博客
+</span></span><span class="line"><span class="cl">cd 我的博客
+</span></span><span class="line"><span class="cl">hugo server
+</span></span></code></pre></div><p>用浏览器打开 <code>localhost:1313</code>。如果页面显示 &ldquo;Page not found&rdquo;，说明此前所有配置都正常无误——站点骨架已经就绪。</p>
+<h2 id="配置主题">配置主题<a hidden class="anchor" aria-hidden="true" href="#配置主题">#</a></h2>
+<p>Hugo 默认没有主题，需要到<a href="https://themes.gohugo.io/" target="_blank" rel="noopener noreferrer" class="external-link">主题商店</a>
+挑选。本文以 PaperMod 为例，把主题下载并解压至 <code>themes</code> 文件夹中，然后在 <code>hugo.yaml</code> 中输入相关配置。文件各项配置解释如下，用作参考：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">baseURL</span><span class="p">:</span><span class="w"> </span><span class="l">https://example.com  </span><span class="w"> </span><span class="c"># 网站的基本 URL，替换为你自己的网站域名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">languageCode</span><span class="p">:</span><span class="w"> </span><span class="l">zh-cn           </span><span class="w"> </span><span class="c"># 网站的默认语言代码，zh-cn 指中文简体</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">theme</span><span class="p">:</span><span class="w"> </span><span class="l">PaperMod               </span><span class="w"> </span><span class="c"># 使用的主题，与 themes 下的文件夹同名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">我的博客               </span><span class="w"> </span><span class="c"># 网站的标题，会显示在浏览器标签上</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">enableGitInfo</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">           </span><span class="c"># 用 git 提交时间生成&#34;最后更新&#34;字段</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">hasCJKLanguage</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">           </span><span class="c"># 中文博客开启它，摘要与字数统计才准确</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">defaultTheme</span><span class="p">:</span><span class="w"> </span><span class="l">auto          </span><span class="w"> </span><span class="c"># 跟随系统明暗切换，也可固定为 light 或 dark</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ShowReadingTime</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">        </span><span class="c"># 显示预计阅读时间</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ShowWordCount</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">          </span><span class="c"># 显示文章字数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ShowBreadCrumbs</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">        </span><span class="c"># 显示面包屑导航</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ShowToc</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                </span><span class="c"># 显示文章目录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">markup</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">highlight</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">noClasses</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">           </span><span class="c"># 以 class 输出高亮，方便用 CSS 自定义配色</span><span class="w">
+</span></span></span></code></pre></div><h2 id="撰写文章">撰写文章<a hidden class="anchor" aria-hidden="true" href="#撰写文章">#</a></h2>
+<p>在 <code>content/posts/</code> 文件夹下新建 Markdown 文件，最上方被 <code>---</code> 包裹的区域是 Front matter，用以指定文章的标题、日期、分类等属性：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;我的第一篇文章&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2026-01-01</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;写在文章标题下方的一句话简介&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">categories</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;工作台&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;Hugo&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></div><p>常用字段：<code>title</code> 标题、<code>date</code> 发布日期、<code>lastmod</code> 最后更新、<code>description</code> 简介、<code>categories</code> 分类、<code>tags</code> 标签、<code>draft</code> 草稿开关。并不是所有字段都要出现，保证有默认属性即可。</p>
+<p>顺手验证一下公式渲染：设第 $n$ 个月的文章数为 $a_n$，若每月翻倍，则</p>
+<p>$$S_n = a_1 \cdot \frac{2^n - 1}{2 - 1}$$</p>
+<h2 id="部署上线">部署上线<a hidden class="anchor" aria-hidden="true" href="#部署上线">#</a></h2>
+<p>内容撰写完毕后，执行 <code>hugo</code> 命令即可在 <code>public/</code> 文件夹生成整站静态文件。推荐将源文件推送到 GitHub 仓库，再交给 Vercel、Cloudflare Pages 或 GitHub Pages 托管，每次推送都会自动重新构建。</p>
+<h2 id="end">End<a hidden class="anchor" aria-hidden="true" href="#end">#</a></h2>
+<p>一切正常的话，就可以愉快地享用你的个人博客啦！当然，部署完成后还可以进行主题美化、评论区配置等一系列繁杂的操作。不过，瞎折腾也不是没有意义的；或许，搭建博客本身就是意义。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://hqiang12.github.io/tags/hugo/">Hugo</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://hqiang12.github.io/posts/demo-second/">
+    <span class="title">下一页 »</span>
+    <span>示例：第二篇文章</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://hqiang12.github.io/">Hqiang</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a><script>
+    (function () {
+         
+        var wideQuery = window.matchMedia("(min-width: 1381px)");
+
+        function apply() {
+            
+
+            document.querySelectorAll(".toc").forEach(function (details) {
+                details.open = wideQuery.matches;
+            });
+        }
+
+        apply();
+        window.addEventListener("resize", apply);
+    })();
+</script>
+
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
